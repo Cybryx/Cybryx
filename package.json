@@ -1,0 +1,22 @@
+{
+  "name": "cybryxture",
+  "version": "1.0.0",
+  "description": "One big node project",
+  "main": "Startup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cybryx/Cybryx.git"
+  },
+  "author": "Simer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cybryx/Cybryx/issues"
+  },
+  "homepage": "https://github.com/Cybryx/Cybryx#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "short_name": "CybryX",
+  "name": "CybryX - The Hidden X",
+  "icons": [
+    {
+      "src": "logo_e.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ff00f2",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "lang": "en"
+}

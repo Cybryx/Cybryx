@@ -23,7 +23,8 @@ initializePassport(
 )
 
 // Database Initialization
-const db = require(__dirname + '/db.json')
+const db = require(path.join(__dirname, '..', 'db.json'))
+const dbpath = path.join(__dirname, '..', 'db.json');
 
 // Express Configurations
 app.use(express.static(path.join(__dirname, 'build')));
@@ -81,8 +82,6 @@ app.post('/contact', function (req, res) {
         res.redirect('/confirm')
     } else {
         id = Date.now().toString();
-        store = require(__dirname + '/messages.json');
-        storepath = __dirname + '/messages.json';
         department = req.body.category
         message = {
             id: id,
@@ -91,8 +90,8 @@ app.post('/contact', function (req, res) {
             subject: req.body.subject,
             message: req.body.message,
         };
-        store[department].push(message);
-        fs.writeFileSync(storepath, JSON.stringify(store, null, 4));
+        db.SHADOW[department].messages.push(message);
+        fs.writeFileSync(dbpath, JSON.stringify(db, null, 4));
         res.redirect('/confirm?name=' + username + '&subject=' + req.body.subject);
     }
 });

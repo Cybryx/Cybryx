@@ -1,0 +1,416 @@
+{
+  "type": "object",
+  "properties": {
+    "X": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "perms": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "CDN": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "content": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "access-token": {
+                        "type": "string"
+                      },
+                      "usage": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "date": {
+                              "type": "string"
+                            },
+                            "count": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "date",
+                            "count"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "path",
+                      "size",
+                      "access-token",
+                      "usage"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "enabled",
+                "size",
+                "content"
+              ]
+            }
+          },
+          "TODO": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "required": [
+                "enabled",
+                "list"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "perms",
+          "username",
+          "password",
+          "CDN",
+          "TODO"
+        ]
+      }
+    },
+    "SHADOW": {
+      "type": "object",
+      "properties": {
+        "GENERAL": {
+          "type": "object",
+          "properties": {
+            "perms": {
+              "type": "integer"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "subject",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "perms",
+            "messages"
+          ]
+        },
+        "AAA": {
+          "type": "object",
+          "properties": {
+            "perms": {
+              "type": "integer"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "subject",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "perms",
+            "messages"
+          ]
+        },
+        "FINANCE": {
+          "type": "object",
+          "properties": {
+            "perms": {
+              "type": "integer"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "subject",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "perms",
+            "messages"
+          ]
+        },
+        "QA": {
+          "type": "object",
+          "properties": {
+            "perms": {
+              "type": "integer"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "subject",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "perms",
+            "messages"
+          ]
+        },
+        "LEGAL": {
+          "type": "object",
+          "properties": {
+            "perms": {
+              "type": "integer"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "subject",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "perms",
+            "messages"
+          ]
+        },
+        "OTHERS": {
+          "type": "object",
+          "properties": {
+            "perms": {
+              "type": "integer"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "subject",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "perms",
+            "messages"
+          ]
+        },
+        "LEGACY": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "email",
+              "subject",
+              "message"
+            ]
+          }
+        }
+      },
+      "required": [
+        "GENERAL",
+        "AAA",
+        "FINANCE",
+        "QA",
+        "LEGAL",
+        "OTHERS",
+        "LEGACY"
+      ]
+    }
+  },
+  "required": [
+    "X",
+    "SHADOW"
+  ]
+}

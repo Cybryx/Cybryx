@@ -6,9 +6,8 @@ license
 .config
 .upm
 
+Projects/db.json
 Projects/AboutMe/build
-Projects/AboutMe/db.json
-Projects/AboutMe/messages.json
 Projects/AboutMe/public/x
 Projects/AboutMe/public/listings
 Projects/AboutMe/src/legacy

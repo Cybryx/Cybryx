@@ -7,6 +7,7 @@ license
 .upm
 
 Projects/db.json
+Projects/config.json
 Projects/AboutMe/build
 Projects/AboutMe/public/x
 Projects/AboutMe/public/listings
@@ -18,3 +19,4 @@ ToS.txt
 Privacy_Policy.txt
 Useful.md
 Launch.js
+default

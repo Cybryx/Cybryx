@@ -5,6 +5,7 @@
   "main": "Startup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "nginx": "node Nginx.js",
     "beta": "node Startup.js",
     "prod": "node Launch.js"
   },

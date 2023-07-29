@@ -115,7 +115,11 @@ function checkNotAuthenticated(req, res, next) {
 
 
 //-------------------------------Server Startup Config----------------------------//
-var server = app.listen(5001, function () {
+const file = path.join(__dirname, '..', 'config.json');
+const config = JSON.parse(fs.readFileSync(file, 'utf8'));
+const port = config.projects.AboutMe.port
+
+var server = app.listen(port, function () {
     var port = server.address().port;
     var family = server.address().family;
     var address = server.address().address;

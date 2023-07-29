@@ -1,0 +1,21 @@
+{
+    "NOTE": "remember to rename this file to config.json",
+    "projects": {
+        "example-project-name-1": {
+            "port": 5001,
+            "backend": null,
+            "subdomain": "www"
+        },
+        "example-project-name-2": {
+            "port": 5002,
+            "subdomain": "frontend",
+            "backend": {
+                "port": 5003,
+                "subdomain": "backend"
+            }
+        }
+    },
+    "reverseProxy": {
+        "domainName": "example.com"
+    }
+}

@@ -6,14 +6,22 @@ license
 .config
 .upm
 
+
 Projects/db.json
 Projects/config.json
+
 Projects/AboutMe/build
 Projects/AboutMe/public/x
 Projects/AboutMe/public/listings
 Projects/AboutMe/src/legacy
+
+Projects/AuthX/legacy
+Projects/AuthX/routes/contact.js
+Projects/AuthX/routes/sync.js
+
 Projects/CDN
 Projects/Holoverse
+
 
 ToS.txt
 Privacy_Policy.txt

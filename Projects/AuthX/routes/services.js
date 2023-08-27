@@ -13,32 +13,30 @@ const router = express.Router();
 router.get('/status/:service', isAuthenticated, (req, res) => {
   try {
     const { service } = req.params;
-    const id = req.user.id;
-    const user = db.X.find(user => user.id === id);
-    if (!user) { return res.status(404).json({ error: 'User not found' }); }
+    const user = req.user
     if (!user[service]) { return res.status(404).json({ status: "null", error: "Unknown service" }); }
     const getStatus = user[service][0];
 
     switch (getStatus.enabled) {
       case null:
-        res.json({ status: "Def", action: "Init" });
+        res.json({ status: "ready", action: "Init" });
         break;
       case false:
-        res.json({ status: "Def", enabled: "Start" });
+        res.json({ status: "deactivated", action: "Start" });
         break;
       case true:
         switch (service) {
           case 'TODO':
-            res.json({ status: "active", list: getStatus.list });
+            res.status(200).json({ status: "active", list: getStatus.list });
             break;
           case 'CDN':
-            res.json({ status: "active", content: getStatus.content });
+            res.status(200).json({ status: "active", content: getStatus.content });
             break;
           case 'ASLIMOSIQI':
-            res.json({ status: "active", playlist: getStatus.list });
+            res.status(200).json({ status: "active", playlist: getStatus.list });
             break;
           case 'CYBERCRAFT':
-            res.json({ status: "active", skin: getStatus.skin });
+            res.status(200).json({ status: "active", skin: getStatus.skin, ign: getStatus.ign });
             break;
         }
         break;

@@ -16,7 +16,6 @@ const JWT_SECRET_KEY = 'REDACTED';
 const { UsernameValidity } = require('../middleware/username');
 const { isAuthenticated } = require('../middleware/authenticated');
 
-
 // Endpoint to log in a user and get a JWT token
 router.post('/login', async (req, res) => {
     try {
@@ -31,12 +30,12 @@ router.post('/login', async (req, res) => {
         if (!passwordMatch) { return res.status(401).json({ error: 'Invalid credentials' }); }
 
         // Generate a JWT token with the user's id and username as payload
-        const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET_KEY, 
-            {expiresIn: '1m'}
+        const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET_KEY,
+            { expiresIn: '30d' }
         );
 
         // Return the token
-        res.json({ token });
+        res.status(200).json({ token: token });
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
     }
@@ -44,7 +43,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-        console.log(req.body)
         const { username, password } = req.body;
 
         // Check if the username is already taken
@@ -115,27 +113,9 @@ router.post('/register', async (req, res) => {
 });
 
 
-router.post('/verify', (req, res) => {
-    try {
-        const { token } = req.body;
-
-        // Verify the provided token
-        jwt.verify(token, JWT_SECRET_KEY, (err, decoded) => {
-            // Token verification failed (invalid token or expired)
-            if (err) { return res.status(401).json({ error: 'Invalid token' }); }
-
-            // Token is valid, find the user associated with the token (if any)
-            const user = db.X.find(user => user.id === decoded.id);
-
-            // User not found
-            if (!user) { return res.status(404).json({ error: 'User not found' }); }
-
-            // Token is valid, and user is found
-            res.json({ user });
-        });
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
+router.post('/verify', isAuthenticated, (req, res) => {
+    res.status(200).json({ message: "Token verified successfully" });
 });
+
 
 module.exports = router;

@@ -34,5 +34,5 @@ var server = app.listen(port, function () {
     if (address == '::') {
         address = 'this ratio mf';
     }
-    console.log('Server running on Port: https://localhost:' + port, '| Family:', family, '| Address', address);
+    console.log('Server running on Port: http://localhost:' + port, '| Family:', family, '| Address', address);
 });

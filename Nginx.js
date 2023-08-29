@@ -14,7 +14,7 @@ server {
 
   if (backend !== null) {
     serverBlock += `
-    location / {
+    location /ep {
         proxy_pass http://localhost:${backend.port};
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;

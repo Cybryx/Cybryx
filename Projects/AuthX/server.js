@@ -5,6 +5,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 
+const frontendRouter = require("./routes/frontend");
 const authRouter = require("./routes/auth");
 const contactRouter = require("./routes/contact");
 const syncRouter = require("./routes/sync");
@@ -18,6 +19,7 @@ app.use(X)
 app.use(cookieParser())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
+app.use("/", frontendRouter)
 app.use("/auth", authRouter);
 app.use("/contact", contactRouter);
 app.use("/sync", syncRouter);

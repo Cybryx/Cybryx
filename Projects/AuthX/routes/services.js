@@ -12,34 +12,34 @@ const router = express.Router();
 // Function to get the enabled status of a specific service
 router.get('/status/:service', isAuthenticated, (req, res) => {
   try {
-    const user = req.cookies.username
+    const authuser = req.user.username
     const { service } = req.params;
-
-    const account = db.X.find(user => user.username === req.cookies.username);
+    
+    const account = db.X.find(user => user.username === authuser);
     
     if (!account[service]) { return res.status(404).json({ status: "null", error: "Unknown service" }); }
     const getStatus = account[service][0];
 
     switch (getStatus.enabled) {
       case null:
-        res.json({ status: "ready", username: user, action: "Init" });
+        res.json({ status: "ready", username: authuser, action: "Init" });
         break;
       case false:
-        res.json({ status: "deactivated", username: user, action: "Start" });
+        res.json({ status: "deactivated", username: authuser, action: "Start" });
         break;
       case true:
         switch (service) {
           case 'TODO':
-            res.status(200).json({ status: "active", username: user, list: getStatus.list });
+            res.status(200).json({ status: "active", username: authuser, list: getStatus.list });
             break;
           case 'CDN':
-            res.status(200).json({ status: "active", username: user, content: getStatus.content });
+            res.status(200).json({ status: "active", username: authuser, content: getStatus.content });
             break;
           case 'ASLIMOSIQI':
-            res.status(200).json({ status: "active", username: user, playlist: getStatus.list });
+            res.status(200).json({ status: "active", username: authuser, playlist: getStatus.list });
             break;
           case 'CYBERCRAFT':
-            res.status(200).json({ status: "active", username: user, skin: getStatus.skin, ign: getStatus.ign });
+            res.status(200).json({ status: "active", username: authuser, skin: getStatus.skin, ign: getStatus.ign });
             break;
         }
         break;

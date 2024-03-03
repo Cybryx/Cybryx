@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CybryX Space Station</title>
+    <style>
+        * {
+            user-select: none;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .user-location {
+            background: white;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .widget {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 125px;
+            font-size: .65rem;
+        }
+    </style>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" type="image/png" href="logo.png" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="//unpkg.com/globe.gl"></script>
+</head>
+
+<body>
+    <div id="universe"></div>
+    <div class="widget"></div>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/examples/jsm/loaders/GLTFLoader.js"></script>
+    <script>
+        // Initialize the Globe
+        const globe = Globe()
+            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+            .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+            .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+            .atmosphereColor("deepskyblue")
+            .atmosphereAltitude("0.25")
+            // .pointOfView({ lat: 20, lng: 75, altitude: 2.5 }, 1000)
+            .htmlElementsData([{ lat: 0, lng: 0, altitude: 0.05, element: marker() }])
+            .htmlLat(d => d.lat)
+            .htmlLng(d => d.lng)
+            .htmlAltitude(d => d.altitude)
+            .htmlElement(d => d.element)
+            .htmlTransitionDuration(1000)
+            (document.getElementById('universe'));
+
+
+
+
+        // User Location Marker
+        function marker() {
+            const marker = document.createElement('div');
+            marker.className = 'user-location';
+            marker.innerHTML = '📍';
+            return marker;
+        }
+        function updateUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    globe
+                        .htmlElementsData([{
+                            lat: latitude,
+                            lng: longitude,
+                            altitude: 0,
+                            element: marker()
+                        }])
+                        .htmlTransitionDuration(1000)
+                    // .pointOfView({ lat: latitude, lng: longitude, altitude: 2.5 }, 1000);
+                }, error => {
+                    console.error('Error getting user location:', error);
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+        updateUserLocation();
+        setInterval(updateUserLocation, 15000);
+
+
+
+
+        // International Space Station
+        function fetchISSLocation() {
+            fetch('https://api.wheretheiss.at/v1/satellites/25544.json')
+                .then(response => response.json())
+                .then(data => { updateISSMarker(data); updateWidget(data) })
+                .catch(error => console.error('Error fetching ISS location:', error));
+        }
+        function updateISSMarker(data) {
+            const { latitude, longitude } = data;
+            globe
+                .ringsData([{ lat: latitude, lng: longitude }])
+                .ringLat(d => d.lat)
+                .ringLng(d => d.lng)
+                .ringAltitude(0.08)
+                .ringPropagationSpeed(.7)
+                .ringMaxRadius(2.5);
+        }
+        function updateWidget(data) {
+            const widget = document.querySelector(".widget");
+            widget.innerHTML = `
+            <p><strong>Live Location: </strong><br>${data.latitude}, ${data.longitude}</p>
+            <p><strong>Current Altitude: </strong><br>${data.altitude} Km</p>
+            <p><strong>SPEEED: </strong><br>${data.velocity} Km/h</p>
+            <p>Spaceship is currently in <strong>${data.visibility}</strong> visibility.</p>
+            <p><strong>${data.timestamp} // CybryXiSS</strong></p>
+            `
+        }
+        setInterval(fetchISSLocation, 2000);
+
+
+
+
+        // Submarine Cable
+        fetch('/cable-geo.json')
+            .then(response => response.json())
+            .then(cablesGeo => {
+                let cablePaths = [];
+                cablesGeo.features.forEach(({ geometry, properties }) => {
+                    geometry.coordinates.forEach(coords => cablePaths.push({ coords, properties }));
+                });
+
+                globe
+                    .pathsData(cablePaths)
+                    .pathPoints('coords')
+                    .pathPointLat(p => p[1])
+                    .pathPointLng(p => p[0])
+                    .pathColor(path => path.properties.color)
+                    .pathLabel(path => path.properties.name)
+                    .pathDashLength(0.1)
+                    .pathDashGap(0.008)
+                    .pathDashAnimateTime(10000)
+                    .pathStroke(.9);
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{
+  "short_name": "CybryXiSS",
+  "name": "CybryX Space Station",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#000",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "lang": "en"
+}

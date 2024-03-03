@@ -24,7 +24,6 @@ Projects/beef
 Projects/CDN
 
 Projects/Holoverse
-Projects/ISS
 Projects/MailX
 Projects/RTC
 
@@ -34,3 +33,5 @@ Privacy_Policy.txt
 Useful.md
 Launch.js
 default
+CybryX.mobileconfig
+<dict>

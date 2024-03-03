@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flip App</title>
+    <link rel="manifest" href="/manifest.json" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      padding: 20px;
+      box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #333;
+      width: fit-content;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      /* Apply texture image */
+      background-image: url('pink.png');
+      background-size: cover;
+    }
+
+    button {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 3.2rem;
+      background-color: #61a1ff;
+      color: #fff;
+      transition: background-color 0.3s ease;
+      width: 20vw;
+      height: 20vw;
+    }
+
+    button:hover {
+      background-color: #3a7bd5;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .widget {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1 onclick="toggleWidget()">Pick</h1>
+
+    <div style="display: flex; justify-content: space-between;">
+      <button onclick="flipCoin(0)">1</button>
+      <button onclick="flipCoin(1)">2</button>
+    </div>
+    <p id="result"></p>
+
+    <div class="widget">
+      <p>Widget Content Goes Here</p>
+    </div>
+  </div>
+
+  <script>
+    function flipCoin(choice) {
+      fetch(`/flip?choice=${choice}`)
+        .then(response => response.text())
+        .then(result => {
+          document.getElementById('result').innerText = result;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function toggleWidget() {
+      const widget = document.querySelector('.widget');
+      widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+
+</html>

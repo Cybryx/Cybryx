@@ -1,0 +1,18 @@
+{
+	"short_name": "TodoX",
+	"name": "Todo ",
+	"lang": "en-US",
+	"start_url": ".",
+	"display": "standalone",
+	"orientation": "any",
+	"theme_color": "#fff",
+	"icons": [
+		{
+		"src": "nazar.png",
+		"sizes": "500x500",
+		"type": "image/png",
+		"purpose": "any maskable"
+		}
+	],
+	"background_color": "#ffffff"
+}

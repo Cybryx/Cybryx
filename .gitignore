@@ -5,6 +5,7 @@ license
 .cache
 .config
 .upm
+.vscode
 
 
 Projects/db.json
@@ -19,8 +20,15 @@ Projects/AuthX/legacy
 Projects/AuthX/routes/contact.js
 Projects/AuthX/routes/sync.js
 
+Projects/beef
 Projects/CDN
+Projects/Docs
 Projects/Holoverse
+Projects/ISS
+Projects/MailX
+Projects/PickX
+Projects/RTC
+Projects/Todo
 
 
 ToS.txt

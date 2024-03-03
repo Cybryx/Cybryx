@@ -47,8 +47,16 @@ function exiting() {
 function systems() {
 	console.log(`
 		 ╔═════════════════════════════════════╗
-		║1| AboutMe  - http://localhost:5001 |〤║
-		║2| SimerCDN - http://localhost:5002 |〤║
+		║1| AboutMe  - http://localhost:5000 |〤║
+		║2| AuthX    - http://localhost:5001 |〤║
+		║3| SimerCDN - http://localhost:5003 |〤║
+		║4| DocX     - http://localhost:5004 |〤║
+		║5| ISS      - http://localhost:5005 |〤║
+		║6| MailX    - http://localhost:5007 |〤║
+		║7| StatusX  - http://localhost:5009 |〤║
+		║8| TodoX    - http://localhost:5010 |〤║
+		║9| xRTC     - http://localhost:5011 |〤║
+		║X| PickX    - http://localhost:5012 |〤║
 		 ╚═════════════════════════════════════╝
 `)}
 
@@ -105,11 +113,43 @@ const colours = {
 const commands = [
     { // ═══════════════════1═══════════════════ // 
         name: 'AboutMe',
-        command: 'cd ./Projects/AboutMe && npm run beta'
+        command: 'cd ./Projects/AboutMe && npm run prod'
     },
     { // ═══════════════════2═══════════════════ // 
+        name: 'AuthX',
+        command: 'cd ./Projects/AuthX && npm run prod'
+    },
+    { // ═══════════════════3═══════════════════ // 
         name: 'SimerCDN',
         command: 'cd ./Projects/CDN && npm run prod'
+    },
+    { // ═══════════════════4═══════════════════ // 
+        name: 'DocX',
+        command: 'cd ./Projects/Docs/server && npm run prod'
+    },
+    { // ═══════════════════5═══════════════════ // 
+        name: 'ISS',
+        command: 'cd ./Projects/ISS && npm run prod'
+    },
+    { // ═══════════════════6═══════════════════ // 
+        name: 'MailX',
+        command: 'cd ./Projects/MailX && npm start'
+    },
+    { // ═══════════════════7═══════════════════ // 
+        name: 'xRTC',
+        command: 'cd ./Projects/RTC && npm run prod'
+    },
+    { // ═══════════════════8═══════════════════ // 
+        name: 'StatusX',
+        command: 'cd ./Projects/Status && node server/server.js'
+    },
+    { // ═══════════════════8═══════════════════ // 
+        name: 'TodoX',
+        command: 'cd ./Projects/Todo && npm run prod'
+    },
+    { // ═══════════════════8═══════════════════ // 
+        name: 'PickX',
+        command: 'cd ./Projects/PickX && npm start'
     }
 ];
 

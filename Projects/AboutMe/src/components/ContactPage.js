@@ -134,7 +134,7 @@ const ContactPage = () => {
 
                     </Description>
                     <Description>
-                        <p>Shared inbox, <a href={subject}>x@simer.ml</a> for private affairs</p>
+                        <p>Shared inbox, <a href={subject}>x@cybryx.live</a> for private affairs</p>
                     </Description>
                     <Description>
 

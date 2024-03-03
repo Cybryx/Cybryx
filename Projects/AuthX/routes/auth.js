@@ -35,7 +35,8 @@ router.post('/login', async (req, res) => {
         );
 
         // Return the token
-        res.status(200).json({ token: token });
+        res.status(200).json({ username: username, token: token });
+        
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
     }
@@ -61,24 +62,26 @@ router.post('/register', async (req, res) => {
             perms: 7,
             username: username,
             password: hashedPassword,
-            CDN: {
-                enabled: null,
-                size: 0,
-                content: [
-                    {
-                        id: 0,
-                        path: '',
-                        size: '',
-                        access_token: '',
-                        usage: [
-                            {
-                                date: '',
-                                count: 0,
-                            },
-                        ],
-                    },
-                ],
-            },
+            CDN: [
+                {
+                    enabled: null,
+                    size: 0,
+                    content: [
+                        {
+                            id: 0,
+                            path: '',
+                            size: '',
+                            access_token: '',
+                            usage: [
+                                {
+                                    date: '',
+                                    count: 0,
+                                },
+                            ],
+                        },
+                    ],
+                }
+            ],
             TODO: [
                 {
                     enabled: null,
@@ -105,7 +108,7 @@ router.post('/register', async (req, res) => {
         fs.writeFileSync(dbpath, JSON.stringify(db, null, 4));
 
         // Return a success message
-        res.sendStatus(201).json({ message: 'Registration successful' });
+        res.status(201).json({ message: 'Registration successful' });
     } catch (error) {
         console.log(error)
         res.status(500).json({ error: 'Internal server error' });

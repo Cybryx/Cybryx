@@ -25,9 +25,9 @@ router.get('/', (req, res) => {
     <title>CybryX - AuthX Documentation</title>
     <link rel="stylesheet" href="styles.css"> <!-- Your CSS file -->
 </head>
-<body>
+<body class="dark-theme">
     <div class="dark-mode-toggle">
-        <div class="dark-mode">🌙</div>
+        <div class="dark-mode">☀️</div>
     </div>
     <div class="container">
         <div class="header">

@@ -12,36 +12,40 @@ const router = express.Router();
 // Function to get the enabled status of a specific service
 router.get('/status/:service', isAuthenticated, (req, res) => {
   try {
+    const user = req.cookies.username
     const { service } = req.params;
-    const user = req.user
-    if (!user[service]) { return res.status(404).json({ status: "null", error: "Unknown service" }); }
-    const getStatus = user[service][0];
+
+    const account = db.X.find(user => user.username === req.cookies.username);
+    
+    if (!account[service]) { return res.status(404).json({ status: "null", error: "Unknown service" }); }
+    const getStatus = account[service][0];
 
     switch (getStatus.enabled) {
       case null:
-        res.json({ status: "ready", action: "Init" });
+        res.json({ status: "ready", username: user, action: "Init" });
         break;
       case false:
-        res.json({ status: "deactivated", action: "Start" });
+        res.json({ status: "deactivated", username: user, action: "Start" });
         break;
       case true:
         switch (service) {
           case 'TODO':
-            res.status(200).json({ status: "active", list: getStatus.list });
+            res.status(200).json({ status: "active", username: user, list: getStatus.list });
             break;
           case 'CDN':
-            res.status(200).json({ status: "active", content: getStatus.content });
+            res.status(200).json({ status: "active", username: user, content: getStatus.content });
             break;
           case 'ASLIMOSIQI':
-            res.status(200).json({ status: "active", playlist: getStatus.list });
+            res.status(200).json({ status: "active", username: user, playlist: getStatus.list });
             break;
           case 'CYBERCRAFT':
-            res.status(200).json({ status: "active", skin: getStatus.skin, ign: getStatus.ign });
+            res.status(200).json({ status: "active", username: user, skin: getStatus.skin, ign: getStatus.ign });
             break;
         }
         break;
     }
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Internal server error' });
   }
 });

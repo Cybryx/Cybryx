@@ -43,7 +43,7 @@
                       "size": {
                         "type": "string"
                       },
-                      "access-token": {
+                      "access_token": {
                         "type": "string"
                       },
                       "usage": {
@@ -69,7 +69,7 @@
                       "id",
                       "path",
                       "size",
-                      "access-token",
+                      "access_token",
                       "usage"
                     ]
                   }

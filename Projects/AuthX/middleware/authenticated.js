@@ -10,6 +10,8 @@ function isAuthenticated(req, res, next) {
   // Get the token from the request header or body
   const token = req.cookies.token || req.header('Authorization') || req.body.token || '';
   
+  console.log(req.cookies)
+
   // Check if the token is present
   if (!token) {
     return res.status(401).json({ error: 'Missing token' });

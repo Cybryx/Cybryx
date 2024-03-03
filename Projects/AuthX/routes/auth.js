@@ -106,9 +106,16 @@ router.post('/register', async (req, res) => {
         // Push to db and add indentations to make the db readable
         db.X.push(newUser);
         fs.writeFileSync(dbpath, JSON.stringify(db, null, 4));
+        
+        // Generate a JWT token with the user's id and username as payload
+        const newuser = db.X.find(user => user.username === username);
+        const token = jwt.sign({ id: newuser.id, username: newuser.username }, JWT_SECRET_KEY,
+            { expiresIn: '30d' }
+        );
+
 
         // Return a success message
-        res.status(201).json({ message: 'Registration successful' });
+        res.status(201).json({ message: 'Registration successful', token: token});
     } catch (error) {
         console.log(error)
         res.status(500).json({ error: 'Internal server error' });

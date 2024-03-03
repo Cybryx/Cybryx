@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="3498db" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="/logo.png" type="image/png">
+    <title>xRTC | CybryX</title>
+    <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+
+        header img {
+            vertical-align: middle;
+        }
+
+        #form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><img src="/logo.png" width="40px" />WebRTC Video Chat</h1>
+    </header>
+
+    <div class="container">
+        <p>xRTC is a peer telecommunications platform for video and voice chat. Uses EJS, SocketJS and PeerJs for
+            crossplatform and synchronous connections.</p>
+        <h3>Get Started</h3>
+        <ol>
+            <li>Enter a name to join the call (optional)</li>
+            <li>Click "Go"
+        </ol>
+        <form action="/" method="post" id="form">
+            <input type="text" name="roomName" placeholder="Create or Join Room...">
+            <br>
+            <br>
+            <button type="submit">Go</button>
+        </form>
+        <br>
+        <h3>Frequently Asked Questions</h3>
+        <ol type="i">
+            <li>Is the connection being properly proxied?</li><b>YES</b>, its behind Cloudflare and Nginx
+            reverse proxy.
+            <li>Why is the iOS stream seperate?</li><b>Because</b> the app currently uses iOS WebView, which has
+            restrictions. A patch is
+            being made.
+            <li>Why is my video not showing up on other users' screens?</li><b>Clear your cookies.</b>
+        </ol>
+    </div>
+    <footer>
+        <p>xRTC v1.2 &copy; 2024 | CybryX</p>
+    </footer>
+</body>
+
+</html>

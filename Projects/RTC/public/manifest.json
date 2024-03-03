@@ -1,0 +1,18 @@
+{
+    "short_name": "xRTC",
+    "name": "WebRTC Video Chat",
+    "icons": [
+      {
+        "src": "/logo.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#000",
+    "background_color": "#3498db",
+    "orientation": "portrait",
+    "lang": "en"
+  }

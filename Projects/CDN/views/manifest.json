@@ -1,0 +1,18 @@
+{
+	"short_name": "CDN",
+	"name": "Content Delivery Network ",
+	"lang": "en-US",
+	"start_url": ".",
+	"display": "standalone",
+	"orientation": "any",
+	"theme_color": "#0b0c0f",
+	"icons": [
+		{
+		"src": "x.png",
+		"sizes": "500x500",
+		"type": "image/png",
+		"purpose": "any maskable"
+		}
+	],
+	"background_color": "#0b0c0f"
+}

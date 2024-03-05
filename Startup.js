@@ -56,7 +56,7 @@ function systems() {
 		║7| StatusX  - http://localhost:5009 |〤║
 		║8| TodoX    - http://localhost:5010 |〤║
 		║9| xRTC     - http://localhost:5011 |〤║
-		║X| PickX    - http://localhost:5012 |〤║
+		║X| Hukam    - http://localhost:5012 |〤║
 		 ╚═════════════════════════════════════╝
 `)}
 
@@ -125,7 +125,7 @@ const commands = [
     },
     { // ═══════════════════4═══════════════════ // 
         name: 'DocX',
-        command: 'cd ./Projects/Docs/server && npm run prod'
+        command: 'cd ./Projects/DocX/server && npm run prod'
     },
     { // ═══════════════════5═══════════════════ // 
         name: 'ISS',
@@ -141,14 +141,14 @@ const commands = [
     },
     { // ═══════════════════8═══════════════════ // 
         name: 'StatusX',
-        command: 'cd ./Projects/Status && node server/server.js'
+        command: 'cd ./Projects/StatusX && node server/server.js'
     },
-    { // ═══════════════════8═══════════════════ // 
+    { // ═══════════════════9═══════════════════ // 
         name: 'TodoX',
-        command: 'cd ./Projects/Todo && npm run prod'
+        command: 'cd ./Projects/TodoX && npm run prod'
     },
-    { // ═══════════════════8═══════════════════ // 
-        name: 'PickX',
+    { // ═══════════════════X═══════════════════ // 
+        name: 'Hukam',
         command: 'cd ./Projects/PickX && npm start'
     }
 ];

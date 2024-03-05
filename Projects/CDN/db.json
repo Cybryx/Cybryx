@@ -1,0 +1,31 @@
+{
+    "$schema": "./schema.json",
+    "X": [
+        {
+            "id": 1685995176651,
+            "perms": 0,
+            "username": "X",
+            "password": "$2b$10$b1ExXbPrdEMro3z/yA6a3u1dqiIxKMTeTI42m.Gh4cDMO3aJjXvhy",
+            "cdn": [
+                {
+                    "enabled": false,
+                    "size": 0,
+                    "content": [
+                        {
+                            "id": 0,
+                            "path": "",
+                            "size": "",
+                            "access-token": "",
+                            "usage": [
+                                {
+                                    "date": "",
+                                    "count": 0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

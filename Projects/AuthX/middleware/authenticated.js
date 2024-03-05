@@ -8,14 +8,15 @@ const db = require(path.join(__dirname, '/../../', 'db.json'));
 // Middleware to check if the user is authenticated (using the JWT token)
 function isAuthenticated(req, res, next) {
   // Get the token from the request header or body
-  const token = req.cookies.token || req.header('Authorization') || req.body.token || '';
-  
-  // console.log(req.cookies)
+  const token = req.body.token || req.header('Authorization') || req.cookies.token || '';
 
-  // Check if the token is present
-  if (!token) {
-    return res.status(401).json({ error: 'Missing token' });
-  }
+  console.log(token)
+
+  // // Check if the token is present
+  // if (!token) {
+  //   return res.status(401).json({ error: 'Missing token' });
+  // }
+
 
   try {
     // Verify the provided token

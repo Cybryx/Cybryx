@@ -105,7 +105,7 @@ const ContactPage = () => {
                 <LogoComponent theme='dark' />
                 <SocialIcons theme='dark' />
                 <PowerButton />
-                <Resume href="https://cdn.simer.ml/content/Simer/Resume.docx">
+                <Resume href="https://cdn.cybryx.live/content/X/Resume.pdf">
                     <motion.h2
                         initial={{
                             y: 0, // -200 for animation

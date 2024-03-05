@@ -1,14 +1,14 @@
 {
-	"short_name": "PickX",
-	"name": "PickX",
+	"short_name": "Hukam",
+	"name": "Hukam",
 	"lang": "en-US",
 	"start_url": ".",
 	"display": "standalone",
 	"orientation": "any",
-	"theme_color": "#fff",
+	"theme_color": "#f4f4f4",
 	"icons": [
 		{
-		"src": "nazar.png",
+		"src": "hukam.png",
 		"sizes": "500x500",
 		"type": "image/png",
 		"purpose": "any maskable"

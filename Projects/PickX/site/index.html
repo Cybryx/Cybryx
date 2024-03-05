@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coin Flip App</title>
-    <link rel="manifest" href="/manifest.json" />
+  <title>Hukam</title>
+  <link rel="manifest" href="/manifest.json" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,9 +20,16 @@
 
     .card {
       padding: 20px;
-      box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+      filter: drop-shadow(8px 7px 10px #ff00f2);
       background-color: #fff;
       border-radius: 10px;
+      top: 24vh;
+      position: absolute;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
     }
 
     h1 {
@@ -35,6 +42,12 @@
       /* Apply texture image */
       background-image: url('pink.png');
       background-size: cover;
+      left: -10px;
+      position: relative;
+    }
+
+    img {
+      vertical-align: sub;
     }
 
     button {
@@ -47,6 +60,7 @@
       background-color: #61a1ff;
       color: #fff;
       transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px #cdb5cb;
       width: 20vw;
       height: 20vw;
     }
@@ -66,27 +80,40 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      padding: 20px;
+      padding: 10px;
       background-color: #fff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       display: none;
+      width: auto;
+    }
+
+    #id {
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
   <div class="card">
-    <h1 onclick="toggleWidget()">Pick</h1>
+    <div class="title-container">
+      <img src="hukam.png" width="40px" onclick="toggleWidget()" />
+      <h1>Hukam</h1>
+    </div>
+    <br>
+    <br>
+    <p id="result"></p>
+    <br>
+    <br>
 
     <div style="display: flex; justify-content: space-between;">
       <button onclick="flipCoin(0)">1</button>
       <button onclick="flipCoin(1)">2</button>
     </div>
-    <p id="result"></p>
 
     <div class="widget">
-      <p>Widget Content Goes Here</p>
+      <p>ਦੱਸ ਖੱਬੀ ਖਾਨ ਕਿੱਥੇ ਸਾਡੇ ਮੇਚ ਦਾ,
+        ਮਾਲਵਾ ਦੋਆਬਾ ਕੀ ਐ ਮਾਝਾ ਮਿੱਠੀਏ</p>
     </div>
   </div>
 

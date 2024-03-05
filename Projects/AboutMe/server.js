@@ -52,6 +52,10 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.sendFile(__dirname + '/build/x/login/index.html');
 });
 
+app.get('/app', async (req, res) => {
+    res.redirect("https://cdn.cybryx.live/CybryX.mobileconfig")
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

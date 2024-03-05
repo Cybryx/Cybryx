@@ -12,10 +12,7 @@ function X(req, res, next) {
 app.use(X)
 app.use(express.static(path.join(__dirname, 'site')));
 
-//--------------------------------------GETS--------------------------------------//
-app.get('/app', async (req, res) => {
-    res.redirect("/CybryX.mobileconfig")
-}); 
+//--------------------------------------GETS--------------------------------------// 
 
 
 app.get('/iss', async (req, res) => {
